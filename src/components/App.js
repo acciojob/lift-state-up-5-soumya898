@@ -1,35 +1,17 @@
-import React from "react";
+import React, { useState } from 'react';
 import './../styles/App.css';
+import Login from './Login';
 
 const App = () => {
-  const [username, setUserName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [dataList, setDataList] = React.useState(false);
-
-  function handleLogin() {
-    setDataList('User logged in!');
-  }
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div>
-      <input
-        name='username'
-        type='text'
-        onChange={(e) => setUserName(e.target.value)}
-      />{" "}
-      <br></br>
-      <input
-        name='email'
-        type='email'
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login </button>
-
-      {dataList && (
-        <p> {dataList}</p>
-      )}
+      {/* Do not remove the main div */}
+      <h1>Parent Component</h1>
+      <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
     </div>
-  )
-}
+  );
+};
 
 export default App;
